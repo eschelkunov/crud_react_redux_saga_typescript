@@ -1,0 +1,32 @@
+// Works only in VScode using Rest Client
+
+// Test: Get all posts
+GET http://localhost:3000/posts/
+
+#########
+
+// Test: Add post
+POST http://localhost:3000/posts/ 
+Content-Type: application/json
+
+{
+    "title":"New post777",
+    "completed":false
+}
+
+##########
+
+// Test: Edit post
+PUT http://localhost:3000/posts/4
+Content-Type: application/json
+
+{
+    "title": "UPDATED!!!!!!!",
+    "completed": false
+}
+
+#######
+
+// Test: Delete post
+DELETE http://localhost:3000/posts/13
+Content-Type: application/json

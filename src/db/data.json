@@ -1,0 +1,39 @@
+{
+  "posts": [
+    {
+      "title": "Post 1",
+      "completed": false,
+      "id": 1
+    },
+    {
+      "title": "Post 2",
+      "completed": false,
+      "id": 2
+    },
+    {
+      "title": "Post 3",
+      "completed": false,
+      "id": 3
+    },
+    {
+      "title": "Post 4",
+      "completed": false,
+      "id": 4
+    },
+    {
+      "title": "Post 5",
+      "completed": false,
+      "id": 5
+    },
+    {
+      "title": "Post 6",
+      "completed": false,
+      "id": 6
+    },
+    {
+      "title": "Post 7",
+      "completed": false,
+      "id": 7
+    }
+  ]
+}
