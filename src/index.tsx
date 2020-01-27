@@ -3,8 +3,6 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./components/App";
 import * as serviceWorker from "./serviceWorker";
-import { IStoreStructure } from "./entities/StoreStructure";
-
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
@@ -15,8 +13,6 @@ const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(entityReducer, applyMiddleware(sagaMiddleware));
 sagaMiddleware.run(rootSaga);
-
-// const action = (type: any) => store.dispatch({ type });
 
 ReactDOM.render(
   <Provider store={store}>

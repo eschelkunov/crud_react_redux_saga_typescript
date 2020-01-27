@@ -1,13 +1,13 @@
-import IPost from "../entities/Post";
+import IPost from "../interfaces/Post";
 
-export const REQUEST_POSTS_DATA = "REQUEST_POSTS_DATA";
-export const RECEIVE_POSTS_DATA = "RECEIVE_POSTS_DATA";
-export const ADD_POST_DATA = "ADD_POST_DATA";
-export const RECEIVE_SINGLE_POST_DATA = "RECEIVE_SINGLE_POST_DATA";
-export const EDIT_POST_DATA = "EDIT_POST_DATA";
-export const UPDATE_SINGLE_POST_DATA = "UPDATE_SINGLE_POST_DATA";
+export const FETCH_POSTS_ASYNC = "FETCH_POSTS_ASYNC";
+export const FETCH_POSTS = "FETCH_POSTS";
+export const ADD_POST_ASYNC = "ADD_POST_ASYNC";
+export const ADD_POST = "ADD_POST";
+export const EDIT_POST = "EDIT_POST";
+export const EDIT_POST_ASYNC = "EDIT_POST_ASYNC";
+export const REMOVE_POST_ASYNC = "REMOVE_POST_ASYNC";
 export const REMOVE_POST = "REMOVE_POST";
-export const DELETE_POST = "DELETE_POST";
 
 export interface IBaseActionType {
   type: string;
@@ -26,46 +26,46 @@ export interface IRemovePostActionType extends IBaseActionType {
 }
 
 // Request all posts
-export const requestPostsData = (): IBaseActionType => ({
-  type: REQUEST_POSTS_DATA
+export const fetchPostsAsync = (): IBaseActionType => ({
+  type: FETCH_POSTS_ASYNC
 });
 
 // Receive all posts
-export const receivePostsData = (data: IPost[]): IPostsActionType => ({
-  type: RECEIVE_POSTS_DATA,
+export const fetchPosts = (data: IPost[]): IPostsActionType => ({
+  type: FETCH_POSTS,
   data
 });
 
 // Add single post
-export const addPostData = (data: IPost): ISinglePostActionType => ({
-  type: ADD_POST_DATA,
+export const addPostAsync = (data: IPost): ISinglePostActionType => ({
+  type: ADD_POST_ASYNC,
   data
 });
 
 // Receive single post
-export const receiveSinglePostData = (data: IPost): ISinglePostActionType => ({
-  type: RECEIVE_SINGLE_POST_DATA,
+export const addPost = (data: IPost): ISinglePostActionType => ({
+  type: ADD_POST,
   data
 });
 
 // Edit single post
-export const editPostData = (data: IPost): ISinglePostActionType => ({
-  type: EDIT_POST_DATA,
+export const editPostAsync = (data: IPost): ISinglePostActionType => ({
+  type: EDIT_POST_ASYNC,
   data
 });
 
-export const updatePostData = (data: IPost): ISinglePostActionType => ({
-  type: UPDATE_SINGLE_POST_DATA,
+export const editPost = (data: IPost): ISinglePostActionType => ({
+  type: EDIT_POST,
   data
 });
 
 // Remove single post
-export const removePost = (id: number): IRemovePostActionType => ({
-  type: REMOVE_POST,
+export const removePostAsync = (id: number): IRemovePostActionType => ({
+  type: REMOVE_POST_ASYNC,
   id
 });
 
-export const deletePost = (data: any): ISinglePostActionType => ({
-  type: DELETE_POST,
+export const removePost = (data: any): ISinglePostActionType => ({
+  type: REMOVE_POST,
   data
 });

@@ -1,5 +1,4 @@
-import IPost from "./entities/Post";
-import { ISinglePostActionType } from "./actions/entityActions";
+import IPost from "./interfaces/Post";
 
 // API
 export const fetchData = async () => {

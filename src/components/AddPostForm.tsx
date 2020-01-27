@@ -1,53 +1,45 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import { addPostData } from "../actions/entityActions";
+import { addPostAsync } from "../actions/entityActions";
 
 interface IPostForm {
-  addPostData({}): void;
+  addPostAsync({ title: string, completed: boolean }: any): void;
 }
 
-export class AddPostForm extends Component<IPostForm> {
-  state = {
-    title: "",
-    completed: false
+export const AddPostForm: React.FC<IPostForm> = props => {
+  const [title, setTitle] = useState("");
+  const [completed] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value);
   };
 
-  handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({
-      title: e.target.value
-    });
-  };
-
-  handleKeyPress = (e: React.KeyboardEvent): void => {
+  const handleKeyPress = (e: React.KeyboardEvent): void => {
     if (e.key === "Enter") {
-      this.props.addPostData(this.state);
-      this.setState({
-        title: ""
-      });
+      props.addPostAsync({ title, completed });
+      setTitle("");
     }
   };
 
-  render() {
-    return (
-      <div className="input-field mt2">
-        <input
-          type="text"
-          id="title"
-          placeholder="What are you thinking about?"
-          value={this.state.title}
-          onChange={this.handleChange}
-          onKeyPress={this.handleKeyPress}
-        />
-        <label htmlFor="title" className="active">
-          Add new post here
-        </label>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="input-field mt2">
+      <input
+        type="text"
+        id="title"
+        placeholder="What are you thinking about?"
+        value={title}
+        onChange={handleChange}
+        onKeyPress={handleKeyPress}
+      />
+      <label htmlFor="title" className="active">
+        Add new post here
+      </label>
+    </div>
+  );
+};
 
 const mapDispatch = {
-  addPostData
+  addPostAsync
 };
 
 const connector = connect(null, mapDispatch);

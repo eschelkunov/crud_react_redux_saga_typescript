@@ -1,10 +1,10 @@
 import test from "tape";
 import { put, call } from "redux-saga/effects";
 
-import { getPostsData, delay } from "./sagas";
+import { fetchPostsAsync, delay } from "./sagas";
 
 test("getPostsData Saga test", (assert: any) => {
-  const gen = getPostsData({ type: "", data: [] });
+  const gen = fetchPostsAsync({ type: "", data: [] });
 
   assert.deepEqual(
     gen.next().value,

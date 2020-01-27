@@ -10,10 +10,10 @@ export const NavBar: React.FC = () => {
         </NavLink>
         <ul className="right hide-on-med-and-down">
           <li>
-            <NavLink to="/">List of post</NavLink>
+            <NavLink to="/add">Add post</NavLink>
           </li>
           <li>
-            <NavLink to="/add">Add post</NavLink>
+            <NavLink to="/">List of post</NavLink>
           </li>
         </ul>
       </div>

@@ -1,10 +1,10 @@
 import {
-  RECEIVE_POSTS_DATA,
-  RECEIVE_SINGLE_POST_DATA,
-  UPDATE_SINGLE_POST_DATA,
-  DELETE_POST
+  FETCH_POSTS,
+  ADD_POST,
+  EDIT_POST,
+  REMOVE_POST
 } from "../actions/entityActions";
-import { IStoreStructure } from "../entities/StoreStructure";
+import { IStoreStructure } from "../interfaces/StoreStructure";
 
 const initialState: IStoreStructure = {
   posts: []
@@ -16,21 +16,21 @@ export default function entityReducer(
 ): IStoreStructure {
   debugger;
   switch (type) {
-    case RECEIVE_POSTS_DATA:
+    case FETCH_POSTS:
       return {
         posts: data
       };
-    case RECEIVE_SINGLE_POST_DATA:
+    case ADD_POST:
       return {
         ...state,
         posts: state.posts.concat(data)
       };
-    case UPDATE_SINGLE_POST_DATA:
+    case EDIT_POST:
       return {
         ...state,
         posts: state.posts.map(post => (post.id === data.id ? data : post))
       };
-    case DELETE_POST:
+    case REMOVE_POST:
       return {
         ...state,
         posts: state.posts.filter(post => post.id !== data.id)

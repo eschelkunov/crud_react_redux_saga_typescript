@@ -1,5 +1,6 @@
 import React from "react";
-import IPost from "../entities/Post";
+import IPost from "../interfaces/Post";
+import { Post } from "./Post";
 
 interface IPostList {
   posts: IPost[];
@@ -26,22 +27,13 @@ export const PostList: React.FC<IPostList> = ({
             classes.push("completed");
           }
           return (
-            <li className={classes.join(" ")} key={post.id}>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={post.completed}
-                  onChange={() => onToggle(post.id)}
-                />
-                <span>{post.title}</span>
-                <i
-                  className="material-icons red-text"
-                  onClick={e => removeHandler(e, post.id)}
-                >
-                  delete
-                </i>
-              </label>
-            </li>
+            <Post
+              key={post.id}
+              classes={classes}
+              post={post}
+              onToggle={onToggle}
+              removeHandler={removeHandler}
+            />
           );
         })}
     </ul>
