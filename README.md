@@ -4,10 +4,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `json-server --watch src/db/data.json`
+
+Runs the json server first in order to mock server
+
 ### `yarn start`
 
+You will see the prompt asking you to start app on port 3001 since 3000 is already in use (by server). Enter `Y`.
 Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.

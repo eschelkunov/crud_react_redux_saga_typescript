@@ -5,15 +5,13 @@ export const NavBar: React.FC = () => {
   return (
     <nav>
       <div className="nav-wrapper blue darken-3 px1">
-        <NavLink to="/" className="brand-logo">
-          Home
-        </NavLink>
+        <div className="brand-logo">Home</div>
         <ul className="right hide-on-med-and-down">
           <li>
-            <NavLink to="/add">Add post</NavLink>
+            <NavLink to="/">Todo list</NavLink>
           </li>
           <li>
-            <NavLink to="/">List of post</NavLink>
+            <NavLink to="/about">About</NavLink>
           </li>
         </ul>
       </div>
