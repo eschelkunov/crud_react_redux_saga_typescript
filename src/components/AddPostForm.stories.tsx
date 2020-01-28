@@ -1,7 +1,6 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
 import { AddPostForm } from "./AddPostForm";
-import "materialize-css/dist/css/materialize.css";
 import "../index.css";
 
 export default {
