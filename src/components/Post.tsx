@@ -1,15 +1,41 @@
 import React from "react";
 import IPost from "../interfaces/Post";
+import { connect } from "react-redux";
+import { editPostAsync, removePostAsync } from "../actions/entityActions";
 
 interface IPostProps {
   classes: string[];
   post: IPost;
-  onToggle(id: number): void;
-  removeHandler(event: React.MouseEvent, id: number): void;
+  editPostAsync({ id: number, title: string, completed: boolean }: any): void;
+  removePostAsync(id: number): void;
 }
 
+declare var confirm: (question: string) => boolean;
+
 export const Post: React.FC<IPostProps> = props => {
-  const { post, onToggle, removeHandler, classes } = props;
+  const { post, classes, editPostAsync } = props;
+
+  const handleRemove = (e: React.MouseEvent, id: number) => {
+    e.preventDefault();
+    handlePopup(id);
+  };
+
+  const handleToggle = (id: number) => {
+    editPostAsync({
+      id,
+      title: post.title,
+      completed: !post.completed
+    });
+  };
+
+  const handlePopup = (id: number) => {
+    const confirmRemoving = confirm(
+      "Are you sure you want to delete this post? "
+    );
+    if (confirmRemoving) {
+      props.removePostAsync(id);
+    }
+  };
 
   return (
     <li className={classes.join(" ")}>
@@ -17,12 +43,13 @@ export const Post: React.FC<IPostProps> = props => {
         <input
           type="checkbox"
           checked={post.completed}
-          onChange={() => onToggle(post.id)}
+          onChange={() => handleToggle(post.id)}
         />
         <span>{post.title}</span>
         <i
           className="material-icons red-text"
-          onClick={e => removeHandler(e, post.id)}
+          id="rm-icon"
+          onClick={e => handleRemove(e, post.id)}
         >
           delete
         </i>
@@ -30,3 +57,12 @@ export const Post: React.FC<IPostProps> = props => {
     </li>
   );
 };
+
+const mapDispatch = {
+  editPostAsync,
+  removePostAsync
+};
+
+const connector = connect(null, mapDispatch);
+
+export default connector(Post);

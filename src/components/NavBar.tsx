@@ -8,10 +8,14 @@ export const NavBar: React.FC = () => {
         <div className="brand-logo">Home</div>
         <ul className="right hide-on-med-and-down">
           <li>
-            <NavLink to="/">Todo list</NavLink>
+            <NavLink to="/" id="todoList">
+              Todo list
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/about">About</NavLink>
+            <NavLink to="/about" id="about">
+              About
+            </NavLink>
           </li>
         </ul>
       </div>

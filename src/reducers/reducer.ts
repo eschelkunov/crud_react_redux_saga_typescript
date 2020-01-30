@@ -14,7 +14,6 @@ export default function entityReducer(
   state = initialState,
   { type, data }: any
 ): IStoreStructure {
-  debugger;
   switch (type) {
     case FETCH_POSTS:
       return {
