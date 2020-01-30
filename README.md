@@ -17,6 +17,10 @@ Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
+### `yarn run storybook`
+
+Opens components in storybook
+
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.<br />

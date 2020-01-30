@@ -8,6 +8,7 @@ import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
 import entityReducer from "./reducers/reducer";
 import rootSaga from "./saga/sagas";
+import ErrorBoundary from "./ErrorBoundary";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -16,7 +17,9 @@ sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
   </Provider>,
   document.getElementById("root")
 );

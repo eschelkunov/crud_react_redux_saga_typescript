@@ -15,7 +15,7 @@ export const AddPostForm: React.FC<IPostForm> = props => {
   };
 
   const handleKeyPress = (e: React.KeyboardEvent): void => {
-    if (e.key === "Enter") {
+    if (title.trim() && e.key === "Enter") {
       props.addPostAsync({ title, completed });
       setTitle("");
     }
